@@ -21,6 +21,7 @@ class App extends Component{
   //     count
   //   })
   // }
+
   render(){
     return(
       <div style={{margin:"auto",textAlign:"center"}}>
@@ -40,8 +41,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return{
-    inc : () => dispatch({type:"INC_NUM"}),
-    dec : () => dispatch({type:"DEC_NUM"})
+    inc : () => dispatch({type:"INC_NUM", val: 10}),
+    dec : () => dispatch({type:"DEC_NUM", val: 5})
   }
 }
 

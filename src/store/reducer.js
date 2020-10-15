@@ -8,15 +8,18 @@ const reducer = (state = initialState, action) => {
     }
     switch (action.type) {
         case 'INC_NUM':
-            newState.count++
-            break;
+            return{
+                ...state,
+                count : state.count + action.val
+            }
         case 'DEC_NUM':
-            newState.count--
-            break;
+            return{
+                ...state,
+                count : state.count - action.val
+            }
         default:
-            break;
+            return newState;
     }
-    return newState;
 }
 
 export default reducer;
