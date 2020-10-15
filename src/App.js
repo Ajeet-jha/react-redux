@@ -28,6 +28,15 @@ class App extends Component{
        <button onClick={this.props.inc}>+</button>
       {this.props.count}
        <button onClick={this.props.dec}>-</button>
+       <hr />
+       <p>History</p>
+       <ul>
+       {
+         this.props.history.map(data => {
+         return (<li key={data.id} className="list" onClick={() => this.props.del_list(data.id)}>{data.count}</li>)
+         })
+       }
+       </ul>
       </div>
     )
   }
@@ -35,14 +44,16 @@ class App extends Component{
 
 const mapStateToProps = (state) => {
   return{
-    count : state.count
+    count : state.count,
+    history : state.history
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return{
-    inc : () => dispatch({type:"INC_NUM", val: 10}),
-    dec : () => dispatch({type:"DEC_NUM", val: 5})
+    inc : () => dispatch({type:"INC_NUM", val: 5}),
+    dec : () => dispatch({type:"DEC_NUM", val: 5}),
+    del_list : (key) => dispatch({type:"DEL_NUM", val : key})
   }
 }
 
